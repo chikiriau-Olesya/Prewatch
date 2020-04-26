@@ -1,0 +1,7 @@
+@import url(../fonts/fugue_regular.otf);
+
+@font-face {
+    font-family: 'Fugue';
+    font-weight: normal;
+    src: url(../fonts/fugue_regular.otf) format(truetype);
+}
