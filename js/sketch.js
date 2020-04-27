@@ -1,12 +1,16 @@
 let dots = [];
 let count;
-let cellSize = 100;
+let cellSize = 200;
 
 function setup() {
-  createCanvas(800, 500);
+  createCanvas(windowWidth, windowHeight);
+
+
+  // let density = displayDensity();
+  // pixelDensity(density);
   
-  let xCellsCount = width / cellSize;
-  let yCellsCount = height / cellSize;
+  let xCellsCount = width / cellSize * 1.2;
+  let yCellsCount = height / cellSize ;
   count = xCellsCount * yCellsCount;
   
   for (let yCount = 0; yCount < yCellsCount; yCount++) {
@@ -23,6 +27,10 @@ function draw() {
     dots[i].move()
     dots[i].display()
   }
+   
+  let mapX = map (mouseX, 500, 0, 500, 0)
+  rect(400+mapX, 20, 200, 200)
+  rect(400+(-mapX), 20, 200, 200)
 }
 
 function createDot({
@@ -42,12 +50,12 @@ function createDot({
       if(paddingX > cellSize || paddingX < 0) {
         directionX *= -1;
         paddingY = paddingY + speed * directionY;
-        d = random(40, 60)
+        d = random(80, 100)
       }
       if(paddingY > cellSize || paddingY < 0) {
          directionY *= -1;
         paddingY = paddingY + speed * directionY;
-        d = random(40, 60)
+        d = random(80, 100)
         }
     },
     
@@ -70,7 +78,6 @@ function createDot({
         noFill();
       }
       
-//       fill(dotsColor);
       if (mouseIsPressed){
         noStroke();
         fill(random(0, 255),random(80, 100), random(200, 255));
@@ -82,8 +89,13 @@ function createDot({
       }
       
      
-      ellipse(x, y, d);
+      ellipse(x + 20, y + 20, d);
      
     }
   }
+}
+
+
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }

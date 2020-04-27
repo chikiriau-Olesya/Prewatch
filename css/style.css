@@ -1,4 +1,5 @@
 @import url(./fonts.css);
+@import url(./reset.css);
 
 html,
 body {
@@ -10,7 +11,6 @@ body {
  background-color: #D2C0D4;
  font-family: 'Fugue';
  text-transform: uppercase;
-
  overflow: hidden;
  width: 100%;
  height: 100%;
@@ -35,59 +35,131 @@ h2 {
   font-size: 2.4vw;
 }
 
-
-.main,
-.header {
-  z-index: 2;
-}
-
-.header {
-  margin-right: 6.4vw;
-}
-
-.header a {
-  margin-top: 2vw;
-  margin-right: 1vw;
-}
-
-.header a:hover{
-  text-decoration: underline;
-}
-
-.header__mobile {
-  display: none;
-}
-
-.header__line {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.main {
-  position: fixed;
-  width: 100%;
-  height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  margin-left: 5vw;
-  
-}
-
-.text__down {
-  width: 85%;
-  display: flex;
-  justify-content: space-between;
-}
-
-.text__down h2:last-of-type{
- align-items: end;
-}
-
 canvas {
   position: fixed;
   z-index: -1;
-  top: 20%;
-  left: 20%;
+  top: 0;
   display: block;
 }
+
+nav {
+  height: 8vh;
+}
+
+.nav__links {
+  display: flex;
+  list-style: none;
+  width: 100%;
+  height: 100%;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+}
+
+.nav__links__item {
+  margin-right: 3vw;
+}
+
+.main {
+  margin: 2vw;
+}
+
+.text__down {
+  position: absolute;
+  bottom: 2vw;
+  width: 96%;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+.menu__open {
+  visibility: hidden;
+}
+
+
+@media (max-width: 425px) {
+  a {
+    color: white;
+  }
+
+  .header{
+    display: none;
+  }
+
+  .nav {
+    height: 10vh;
+  }
+
+  .menu__open,
+  .menu__close {
+    position: absolute;
+    cursor: pointer;
+    right: 5%;
+    top: 5%;
+    transform: translate(-5%,-50%);
+    z-index: 2;
+  }
+
+  .menu__open {
+    visibility: visible;
+  }
+
+  .menu__close {
+    visibility:hidden;
+  }
+
+  .menu__line {
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 5px;
+  }
+
+  .menu__close .menu__line:first-of-type,
+  .menu__close .menu__line:last-of-type {
+    width: 30px;
+    height: 3px;
+    background: white;
+    margin: 0;
+    transform: rotate(45deg);
+  }
+
+  .menu__close .menu__line:first-of-type {
+    transform: rotate(45deg);
+  }
+
+  .menu__close .menu__line:last-of-type {
+    transform: rotate(-45deg);
+  }
+
+  .nav__links {
+    list-style: none;
+    position: fixed;
+    background: #3300FF;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    font-size: 8vw;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    visibility: hidden;
+  }
+
+  .nav__links__item {
+    margin-bottom: 30px;
+  }
+
+
+
+
+}
+
+
