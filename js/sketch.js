@@ -31,6 +31,11 @@ function draw() {
   let mapX = map (mouseX, 500, 0, 500, 0)
   rect(400+mapX, 20, 200, 200)
   rect(400+(-mapX), 20, 200, 200)
+
+  rect(10+mapX, 300, 100, 50)
+  
+  rect(600+mapX, 500, 200, 100)
+  rect(600+(-mapX), 500, 200, 100)
 }
 
 function createDot({
